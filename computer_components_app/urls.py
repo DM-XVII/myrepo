@@ -1,0 +1,26 @@
+from django.urls import path
+from .views import *
+urlpatterns = [
+    path('',Main.as_view(),name='main'),
+    path('main/',Main.as_view(),name='main'),
+    path('manufacturers/',ManufacturerListView.as_view(),name='manufacturers'),
+    path('manufacturers/<int:pk>',ManufacturerDetailView.as_view(),name='manufacturer'),
+    path('manufacturers/<int:pk>/update',ManufacturerUpdateView.as_view(),name='update_manufacturer'),
+    path('manufacturers/<int:pk>/delete',ManufacturertDeleteView.as_view(),name='delete_manufacturer'),
+    path('manufacturers/create',ManufacturerCreateView.as_view(),name='create_manufacturer'),
+    path('types/',TypeListView.as_view(),name='types'),
+    path('types/<int:pk>',TypeDetailView.as_view(),name='type'),
+    path('types/<int:pk>/update',TypeUpdateView.as_view(),name='update_type'),
+    path('types/<int:pk>/delete',TypetDeleteView.as_view(),name='delete_type'),
+    path('types/create',TypeCreateView.as_view(),name='create_type'),
+    path('components/',ComponentListView.as_view(),name='components'),
+    path('components/<int:pk>/',ComponentDetailView.as_view(),name='component'),
+    path('components/<int:pk>/update',ComponentUpdateView.as_view(),name='update_component'),
+    path('components/<int:pk>/delete',ComponentDeleteView.as_view(),name='delete_component'),
+    path('components/create',ComponentCreateView.as_view(),name='create_component'),
+    path('register/', register, name='register'),
+    path('login/', user_login, name='login'),
+    path('logout/', user_logout, name='logout'),
+    path('change-username/', change_username, name='change_username'),
+    path('change-password/', change_password, name='change_password'),
+]

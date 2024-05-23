@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+    <h1>{% trans "Welcome to Computer Components" %}</h1>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{% url 'components' %}">{% trans 'Components' %}</a></h5>
+                    {% if is_manager %}
+                    <p class="card-text"><a href="{% url 'create_component' %}">{% trans 'Add new component' %}</a></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{% url 'types' %}">{% trans 'Types' %}</a></h5>
+                    {% if is_manager %}
+                    <p class="card-text"><a href="{% url 'create_type' %}">{% trans 'Add new type' %}</a></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title"><a href="{% url 'manufacturers' %}">{% trans 'Manufacturers' %}</a></h5>
+                    {% if is_manager %}
+                    <p class="card-text"><a href="{% url 'create_manufacturer' %}">{% trans 'Add new manufacturer' %}</a></p>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

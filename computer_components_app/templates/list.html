@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    {% if object_type == 'component' %}
+        Components List - {{ block.super }}
+    {% elif object_type == 'type' %}
+        Types List - {{ block.super }}
+    {% elif object_type == 'manufacturer' %}
+        Manufacturers List - {{ block.super }}
+    {% endif %}
+{% endblock %}
+
+{% block content %}
+    <h1>{% if object_type == 'component' %}Components{% elif object_type == 'type' %}Types{% elif object_type == 'manufacturer' %}Manufacturers{% endif %}</h1>
+    <div class="list-group">
+        {% for object in list_object %}
+            <a href="{{ object.get_absolute_url }}" class="list-group-item list-group-item-action">{{ object.name }}</a>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load i18n %}
+{% block content %}
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}Component Form{% endblock %}</title>
+    </head>
+    <body>
+        <h1>{% block heading %}Component Form{% endblock %}</h1>
+
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }} <!-- Renders form fields as <p> elements -->
+            <button type="submit">Submit</button>
+        </form>
+    </body>
+    </html>
+{% endblock %}
